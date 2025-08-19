@@ -170,7 +170,18 @@
         </div>
       </div>
 
-      <p class="lead">We're opening soon — mark your calendar. Our online shop launches on <strong>August 24, 2025 at 11:30 AM</strong>.</p>
+      <p class="lead">
+        We're opening soon — mark your calendar. Our online shop launches on 
+        <strong>September 01, 2025 at 11:30 AM</strong>.
+      </p>
+
+      <!-- Fallback Button (hidden by default) -->
+      <div id="fallback-btn" style="display:none; margin-top: 16px;">
+        <a href="/shop" 
+          style="display:inline-block; background: var(--accent); color:white; padding:12px 18px; border-radius:10px; text-decoration:none; font-weight:600;">
+          Go to Shop
+        </a>
+      </div>
 
       <div class="hero">
         <div class="features">
@@ -202,60 +213,68 @@
   </main>
 
   <script>
-    // Countdown
-    (function(){
-      const target = new Date('2025-08-24T11:30:00');
-      const daysEl = document.getElementById('days');
-      const hoursEl = document.getElementById('hours');
-      const minsEl = document.getElementById('minutes');
-      const secsEl = document.getElementById('seconds');
+  // Countdown
+  (function(){
+    const target = new Date('2025-09-01T11:30:00');
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minsEl = document.getElementById('minutes');
+    const secsEl = document.getElementById('seconds');
+    const leadText = document.querySelector('.lead');
+    const fallbackBtn = document.getElementById('fallback-btn');
 
-      function update(){
-        const now = new Date();
-        let diff = Math.max(0, target - now);
-        if(diff <= 0){
-          daysEl.textContent = '0'; 
-          hoursEl.textContent='0'; 
-          minsEl.textContent='0'; 
-          secsEl.textContent='0';
-          document.querySelector('.lead').textContent = "We're open — welcome to Acole Prints!";
-          clearInterval(timer);
-          return;
-        }
-        const s = Math.floor(diff / 1000);
-        const days = Math.floor(s / (3600*24));
-        const hours = Math.floor((s % (3600*24)) / 3600);
-        const mins = Math.floor((s % 3600) / 60);
-        const secs = s % 60;
-        daysEl.textContent = days;
-        hoursEl.textContent = String(hours).padStart(2,'0');
-        minsEl.textContent = String(mins).padStart(2,'0');
-        secsEl.textContent = String(secs).padStart(2,'0');
+    function update(){
+      const now = new Date();
+      let diff = Math.max(0, target - now);
+      if(diff <= 0){
+        daysEl.textContent = '0'; 
+        hoursEl.textContent='0'; 
+        minsEl.textContent='0'; 
+        secsEl.textContent='0';
+        leadText.textContent = "Redirecting to the shop...";
+        fallbackBtn.style.display = "block"; // Show fallback button
+        clearInterval(timer);
+
+        // Try redirect after 2 seconds
+        setTimeout(() => {
+          window.location.href = "/shop";
+        }, 2000);
+        return;
       }
-      update();
-      const timer = setInterval(update,1000);
-    })();
+      const s = Math.floor(diff / 1000);
+      const days = Math.floor(s / (3600*24));
+      const hours = Math.floor((s % (3600*24)) / 3600);
+      const mins = Math.floor((s % 3600) / 60);
+      const secs = s % 60;
+      daysEl.textContent = days;
+      hoursEl.textContent = String(hours).padStart(2,'0');
+      minsEl.textContent = String(mins).padStart(2,'0');
+      secsEl.textContent = String(secs).padStart(2,'0');
+    }
+    update();
+    const timer = setInterval(update,1000);
+  })();
 
-    // AJAX Form Submission + Redirect
-    document.getElementById("emailForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const form = this;
-      const formData = new FormData(form);
+  // AJAX Form Submission + Redirect
+  document.getElementById("emailForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const form = this;
+    const formData = new FormData(form);
 
-      fetch(form.action, {
-        method: "POST",
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          window.location.href = "https://groups.google.com/g/acole-prints";
-        } else {
-          alert("There was an issue. Please try again.");
-        }
-      }).catch(() => {
-        alert("Error sending form.");
-      });
+    fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        window.location.href = "https://groups.google.com/g/acole-prints";
+      } else {
+        alert("There was an issue. Please try again.");
+      }
+    }).catch(() => {
+      alert("Error sending form.");
     });
+  });
   </script>
 </body>
 </html>
