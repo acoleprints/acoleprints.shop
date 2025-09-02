@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Acole Prints — Shop</title>
+  <style>
+    :root {
+      --bg: #0f1724;
+      --card: #0b1220;
+      --accent: #7c3aed;
+      --muted: #97a0b5;
+      --btn-bg: #7c3aed;
+      --btn-hover: #6d28d9;
+      --text: #e6eef8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color: var(--text);
+      background: linear-gradient(180deg, var(--bg), #071024);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+    }
+    header {
+      text-align: center;
+      padding: 24px 0;
+    }
+    header h1 { margin: 0; font-size: 32px; color: var(--accent); }
+    header p { color: var(--muted); font-size: 14px; }
+    
+    main {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      display: grid;
+      gap: 40px;
+    }
+    
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .gallery-item {
+      background: var(--card);
+      padding: 12px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .gallery-item h3 {
+      margin: 12px 0 6px;
+      font-size: 16px;
+    }
+    .gallery-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .modal-content {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+    .modal-content h3 {
+      margin: 0 0 10px;
+    }
+    .modal-content p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      font-size: 22px;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      color: #fff;
+    }
+    
+    /* How to Buy */
+    .buy {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    .buy h2 { margin-top: 0; color: var(--accent); }
+    .buy ol {
+      padding-left: 18px;
+    }
+    .buy li {
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+    
+    /* Contact Section */
+    .contact {
+      text-align: center;
+      margin-top: 40px;
+      background: var(--card);
+      padding: 30px;
+      border-radius: 12px;
+    }
+    .contact h2 {
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+    .contact p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+    .contact .btn {
+      display: inline-block;
+      background: var(--btn-bg);
+      color: #fff;
+      padding: 12px 18px;
+      margin: 10px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    .contact .btn:hover {
+      background: var(--btn-hover);
+    }
+    
+    /* Join Google Group */
+    .join {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .join a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 20px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .join a:hover {
+      background: var(--btn-hover);
+    }
+    
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 20px 0;
+    }
+    
+    /* Mobile */
+    @media (max-width: 600px) {
+      header h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Acole Prints Shop</h1>
+    <p>High-quality 3D prints, custom designs, and more.</p>
+  </header>
+
+  <main>
+    <!-- Gallery -->
+    <section>
+      <h2 style="color: var(--accent); text-align:center;">Our Prints</h2>
+      <div class="gallery">
+        <div class="gallery-item" data-title="Infinity Fidget Cube" data-price="$5" data-desc="Available Colors: Blue" data-img="shop/cube.png">
+          <img src="shop/cube.png" alt="3D Print 1">
+          <h3>Infinity Fidget Cube</h3>
+          <p>$5</p>
+        </div>
+        <div class="gallery-item" data-title="Cone Fidget" data-price="$5" data-desc="Available Colors: Red, Blue, Mixed Red or Blue" data-img="shop/cone.png">
+          <img src="shop/cone.png" alt="3D Print 2">
+          <h3>Cone Fidget</h3>
+          <p>$5</p>
+        </div>
+        <div class="gallery-item" data-title="Button Clicker" data-price="$5" data-desc="Available Colors: Red or Blue" data-img="shop/button-clicker.png">
+          <img src="shop/button-clicker.png" alt="3D Print 3">
+          <h3>Button Clicker</h3>
+          <p>$5</p>
+        </div>
+        <div class="gallery-item" data-title="Mini Whistle" data-price="$2.50" data-desc="Available Colors: Red, Blue, or Black" data-img="shop/whistle.png">
+          <img src="shop/whistle.png" alt="3D Print 4">
+          <h3>Mini Whistle</h3>
+          <p>$2.50</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- How to Buy -->
+    <section class="buy">
+      <h2>How to Buy</h2>
+      <ol>
+        <li>Browse our gallery and choose your favorite print.</li>
+        <li>Contact us using the button below with your selection.</li>
+        <li>We’ll send you payment details and shipping info.</li>
+        <li>Once payment is confirmed, your print will be shipped!</li>
+      </ol>
+    </section>
+
+    <!-- Contact -->
+    <div class="contact">
+      <h2>Contact Us / Order Here</h2>
+      <p>Have questions or want to place an order? Reach out to us, and stay updated by joining our Google Group.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdzJyZKsRx_DXeabYliwyHO_khCMO3zcZ1wmQVRMh5EdqvoDQ/viewform" class="btn" target="_blank">Contact Us</a>
+      <a href="https://groups.google.com/g/acole-prints" class="btn" target="_blank">Join Google Group</a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Acole Prints. All rights reserved.
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal" id="productModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeModal">&times;</button>
+      <img id="modalImg" src="" alt="">
+      <h3 id="modalTitle"></h3>
+      <p id="modalPrice"></p>
+      <p id="modalDesc"></p>
+    </div>
+  </div>
+
+  <script>
+    // Modal functionality
+    const modal = document.getElementById('productModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalDesc = document.getElementById('modalDesc');
+    const closeModal = document.getElementById('closeModal');
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => {
+        modalImg.src = item.dataset.img;
+        modalTitle.textContent = item.dataset.title;
+        modalPrice.textContent = item.dataset.price;
+        modalDesc.textContent = item.dataset.desc;
+        modal.style.display = 'flex';
+      });
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', e => {
+      if (e.target === modal) modal.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

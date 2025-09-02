@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - Acole Prints</title>
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0b0c10;
+      color: #ffffff;
+    }
+
+    .navbar {
+      background-color: #1f2833;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+    .logo {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #66fcf1;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+    .nav-links a {
+      color: #c5c6c7;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #66fcf1;
+    }
+
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+    }
+    .dropbtn {
+      background: none;
+      border: none;
+      color: #c5c6c7;
+      font-weight: 500;
+      cursor: pointer;
+      font-size: 1em;
+      transition: color 0.3s;
+    }
+    .dropbtn:hover {
+      color: #66fcf1;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #1f2833;
+      min-width: 150px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      top: 2.5rem;
+      z-index: 10;
+    }
+    .dropdown-content a {
+      color: #c5c6c7;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      display: block;
+      transition: background 0.2s;
+    }
+    .dropdown-content a:hover {
+      background-color: #0b0c10;
+      color: #66fcf1;
+    }
+
+    .content-section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      flex: 1; /* Pushes footer to bottom if content is short */
+    }
+    .content-section h1 {
+      font-size: 2.8em;
+      color: #66fcf1;
+      margin-bottom: 20px;
+    }
+    .content-section p {
+      font-size: 1.2em;
+      color: #c5c6c7;
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #1f2833;
+      color: #c5c6c7;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <a class="logo" href="./">Acole Prints</a>
+    <div class="nav-links">
+      <a href="./">Home</a>
+      <a href="https://shop.acoleprints.shop" target="_blank">Shop</a>
+      <a href="about">About</a>
+      <a href="contact">Contact</a>
+      <div class="dropdown">
+        <button class="dropbtn">Socials ▾</button>
+        <div class="dropdown-content">
+          <a href="https://www.instagram.com/acoleprints" target="_blank">Instagram</a>
+          <a href="https://www.x.com/acoleprints" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/acoleprints" target="_blank">Facebook</a>
+          <a href="https://groups.google.com/g/acole-prints" target="_blank">Google Group</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <div class="content-section">
+    <h1>About Acole Prints</h1>
+    <p>
+      At Acole Prints, we bring ideas to life through custom 3D printing.  
+      From unique designs to functional creations, our mission is to make cool, creative,  
+      and useful prints accessible to everyone. Whether you're a hobbyist, a business,  
+      or just looking for something custom, we've got you covered.
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Acole Prints — All rights reserved. | info@acoleprints.shop
+  </footer>
+
+  <script>
+    // Dropdown toggle
+    const dropdown = document.querySelector('.dropdown');
+    const dropbtn = dropdown.querySelector('.dropbtn');
+    const menu = dropdown.querySelector('.dropdown-content');
+
+    dropbtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener('click', () => {
+      menu.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

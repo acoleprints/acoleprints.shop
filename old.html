@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Acole Prints — Opening Soon</title>
+  <style>
+    :root {
+      --bg: #0f1724;
+      --card: #0b1220;
+      --accent: #7c3aed;
+      --muted: #97a0b5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color: #e6eef8;
+      background: linear-gradient(180deg, var(--bg), #071024);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
+    .wrap {
+      max-width: 920px;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 32px;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      flex-shrink: 0;
+    }
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    h1 { margin: 0; font-size: 28px; }
+    p.lead { color: var(--muted); margin: 10px 0 20px; }
+    .hero { font-size: 14px; }
+    .features {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .feature {
+      background: rgba(255,255,255,0.02);
+      padding: 10px 12px;
+      border-radius: 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .countdown {
+      display: flex;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .countdown .block {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding: 18px;
+      border-radius: 10px;
+      min-width: 72px;
+      text-align: center;
+    }
+    .countdown .num { font-size: 22px; font-weight: 700; }
+    .countdown .label { font-size: 12px; color: var(--muted); margin-top: 6px; }
+    form.signup {
+      background: var(--card);
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.02);
+    }
+    label { font-size: 13px; color: var(--muted); }
+    input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.04);
+      margin-top: 8px;
+      background: transparent;
+      color: inherit;
+    }
+    .row {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    button {
+      background: var(--accent);
+      color: white;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 0;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button.ghost {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .small { font-size: 13px; color: var(--muted); margin-top: 10px; }
+    footer {
+      grid-column: 1/-1;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    /* Tablet */
+    @media (max-width: 900px) {
+      .wrap { grid-template-columns: 1fr; padding: 24px; }
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 600px) {
+      body { padding: 16px; }
+      .wrap { padding: 20px; gap: 20px; }
+      h1 { font-size: 22px; }
+      p.lead { font-size: 14px; }
+    }
+
+    /* Small mobile */
+    @media (max-width: 480px) {
+      .countdown { gap: 8px; }
+      .countdown .block { padding: 12px; min-width: 60px; }
+      .countdown .num { font-size: 18px; }
+      .row { flex-direction: column; }
+      .row button { width: 100%; }
+      .logo { width: 48px; height: 48px; }
+    }
+
+    /* Extra small */
+    @media (max-width: 400px) {
+      .brand { flex-direction: column; align-items: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap" role="main">
+    <section>
+      <div class="brand">
+        <div class="logo">
+          <img src="logo.png" alt="Acole Prints Logo">
+        </div>
+        <div>
+          <h1>Acole Prints</h1>
+          <div class="small">High-quality 3D prints made with care</div>
+        </div>
+      </div>
+
+      <p class="lead">
+        We're opening soon — mark your calendar. Our online shop launches on 
+        <strong>September 01, 2025 at 11:30 AM</strong>.
+      </p>
+
+      <!-- Fallback Button (hidden by default) -->
+      <div id="fallback-btn" style="display:none; margin-top: 16px;">
+        <a href="https://shop.acoleprints.shop/" 
+          style="display:inline-block; background: var(--accent); color:white; padding:12px 18px; border-radius:10px; text-decoration:none; font-weight:600;">
+          Go to Shop
+        </a>
+      </div>
+
+      <div class="hero">
+        <div class="features">
+          <div class="feature">PLA</div>
+          <div class="feature">Custom prints & commissions</div>
+          <div class="feature">Worldwide shipping</div>
+        </div>
+
+        <div class="countdown" aria-live="polite">
+          <div class="block"><div class="num" id="days">--</div><div class="label">Days</div></div>
+          <div class="block"><div class="num" id="hours">--</div><div class="label">Hours</div></div>
+          <div class="block"><div class="num" id="minutes">--</div><div class="label">Minutes</div></div>
+          <div class="block"><div class="num" id="seconds">--</div><div class="label">Seconds</div></div>
+        </div>
+      </div>
+    </section>
+
+    <aside>
+      <!-- AJAX-enabled Formspree Form -->
+      <form id="emailForm" action="https://formspree.io/f/xgvzdaaz" method="post" novalidate class="signup">
+        <label for="email">Join our email list</label>
+        <input id="email" type="email" name="email" placeholder="you@example.com" required />
+        <div class="row">
+          <button type="submit">Notify me</button>
+        </div>
+        <div class="small">We respect your privacy — unsubscribe anytime.</div>
+      </form>
+    </aside>
+  </main>
+
+  <script>
+  // Countdown
+  (function(){
+    const target = new Date('2025-09-01T11:30:00');
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minsEl = document.getElementById('minutes');
+    const secsEl = document.getElementById('seconds');
+    const leadText = document.querySelector('.lead');
+    const fallbackBtn = document.getElementById('fallback-btn');
+
+    function update(){
+      const now = new Date();
+      let diff = Math.max(0, target - now);
+      if(diff <= 0){
+        daysEl.textContent = '0'; 
+        hoursEl.textContent='0'; 
+        minsEl.textContent='0'; 
+        secsEl.textContent='0';
+        leadText.textContent = "Redirecting to the shop...";
+        fallbackBtn.style.display = "block"; // Show fallback button
+        clearInterval(timer);
+
+        // Try redirect after 2 seconds
+        setTimeout(() => {
+          window.location.href = "https://shop.acoleprints.shop/";
+        }, 2000);
+        return;
+      }
+      const s = Math.floor(diff / 1000);
+      const days = Math.floor(s / (3600*24));
+      const hours = Math.floor((s % (3600*24)) / 3600);
+      const mins = Math.floor((s % 3600) / 60);
+      const secs = s % 60;
+      daysEl.textContent = days;
+      hoursEl.textContent = String(hours).padStart(2,'0');
+      minsEl.textContent = String(mins).padStart(2,'0');
+      secsEl.textContent = String(secs).padStart(2,'0');
+    }
+    update();
+    const timer = setInterval(update,1000);
+  })();
+
+  // AJAX Form Submission + Redirect
+  document.getElementById("emailForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const form = this;
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        window.location.href = "https://groups.google.com/g/acole-prints";
+      } else {
+        alert("There was an issue. Please try again.");
+      }
+    }).catch(() => {
+      alert("Error sending form.");
+    });
+  });
+  </script>
+</body>
+</html>
