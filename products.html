@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tools & Tech - Acole Prints</title>
+  <link rel="icon" href="products/favicon.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0b0c10;
+      color: #ffffff;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .navbar {
+      background-color: #1f2833;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #66fcf1;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #c5c6c7;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #66fcf1;
+    }
+
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+    }
+    .dropbtn {
+      background: none;
+      border: none;
+      color: #c5c6c7;
+      font-weight: 500;
+      cursor: pointer;
+      font-size: 1em;
+      transition: color 0.3s;
+    }
+    .dropbtn:hover {
+      color: #66fcf1;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #1f2833;
+      min-width: 150px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      top: 2.5rem;
+      z-index: 10;
+    }
+    .dropdown-content a {
+      color: #c5c6c7;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      display: block;
+      transition: background 0.2s;
+    }
+    .dropdown-content a:hover {
+      background-color: #0b0c10;
+      color: #66fcf1;
+    }
+
+    /* Content Section */
+    .content-section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+      flex: 1;
+      text-align: center;
+    }
+
+    .content-section h1 {
+      font-size: 2.8em;
+      color: #66fcf1;
+      margin-bottom: 20px;
+    }
+
+    .content-section p {
+      font-size: 1.1em;
+      color: #c5c6c7;
+      margin-bottom: 50px;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .tool-card {
+      background-color: #1f2833;
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.6);
+    }
+
+    .tool-card a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .tool-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .tool-card h3 {
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .tool-card p {
+      color: #c5c6c7;
+      font-size: 0.95em;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #1f2833;
+      color: #c5c6c7;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <a class="logo" href="./">Acole Prints</a>
+    <div class="nav-links">
+      <a href="./">Home</a>
+      <a href="./#shop">Shop</a>
+      <a href="tools">Tools & Tech</a>
+      <a href="contact">Contact</a>
+      <div class="dropdown">
+        <button class="dropbtn">Socials ▾</button>
+        <div class="dropdown-content">
+          <a href="links/instagram" target="_blank">Instagram</a>
+          <a href="links/x" target="_blank">X / Twitter</a>
+          <a href="links/facebook" target="_blank">Facebook</a>
+          <a href="links/group" target="_blank">Google Group</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tools Section -->
+  <div class="content-section">
+    <h1>Tools & Tech</h1>
+    <p>Here’s what powers Acole Prints — from the software that keeps the shop running to the 3D printers that bring ideas to life.</p>
+
+    <div class="tool-grid">
+      <!-- Website Tools -->
+      <div class="tool-card">
+        <a href="https://porkbun.com" target="_blank">
+          <img src="products/porkbun.png" alt="Porkbun Logo">
+          <h3><u>Porkbun</u></h3>
+          <p>Handles domain management, security, and fast content delivery for Acole Prints sites.</p>
+        </a>
+      </div>
+
+      <div class="tool-card">
+        <a href="https://render.com" target="_blank">
+          <img src="products/render.png" alt="Render Logo">
+          <h3><u>Render</u></h3>
+          <p>Cloud rendering and hosting services for web apps, APIs, and 3D workflows.</p>
+        </a>
+      </div>
+
+      <div class="tool-card">
+        <a href="https://github.com" target="_blank">
+          <img src="products/github.png" alt="GitHub Logo">
+          <h3><u>GitHub</u></h3>
+          <p>Version control and collaborative code hosting platform for managing and deploying projects.</p>
+        </a>
+      </div>
+
+      <div class="tool-card">
+        <a href="https://www.fillout.com" target="_blank">
+          <img src="products/fillout.png" alt="Fillout Logo">
+          <h3><u>Fillout</u></h3>
+          <p>Used for creating and embedding customer order forms, feedback, and custom print requests.</p>
+        </a>
+      </div>
+
+      <!-- 3D Printing Equipment -->
+      <div class="tool-card">
+        <a href="https://www.creality.com/products/ender-3-v3-se-3d-printer" target="_blank">
+          <img src="products/ender-v3.webp" alt="Ender 3 Printer">
+          <h3><u>Creality Ender 3 V3 SE</u></h3>
+          <p>Reliable FDM printer for high-quality, functional 3D prints.</p>
+          <p>1 Printer</p>
+        </a>
+      </div>
+
+      <div class="tool-card">
+        <a href="https://www.flashforge.com/product-detail/Adventurer-5M-Pro" target="_blank">
+          <img src="products/a5mp.jpg" alt="Adventurer 5M Pro Printer">
+          <h3><u>Flashforge Adventurer 5 Pro</u></h3>
+          <p>Reliable FDM printer for high-quality, fast, functional 3D prints.</p>
+          <p>2 Printers</p>
+        </a>
+      </div>
+
+      <div class="tool-card">
+        <a href="https://flashforge-usa.com/products/adventurer-3" target="_blank">
+          <img src="products/a3s.jpg" alt="Adventurer 3 Series Printer">
+          <h3><u>Flashforge Adventurer 3</u></h3>
+          <p><strong>NOTE:</strong> Getting Rid of Soon.</p>
+          <p>Reliable FDM printer for high-quality, fast, functional 3D prints.</p>
+          <p>10 Printers</p>
+        </a>
+      </div>
+
+      <!-- 3D Printing Slicing Software -->
+      <div class="tool-card">
+        <a href="https://www.flashforge.com/product-detail/FlashPrint" target="_blank">
+          <img src="products/flashforge.jpg" alt="FlashPrint Logo">
+          <h3><u>FlashForge</u></h3>
+          <p>FlashPrint slicing software: prepares 3D models for printing with Flashforge printers for accurate results.</p>
+        </a>
+      </div>
+
+      <div class="tool-card">
+        <a href="https://www.creality.com/download#flagship-series" target="_blank">
+          <img src="products/creality.png" alt="Creality Print Logo">
+          <h3><u>Creality Print</u></h3>
+          <p>Creality’s slicing software: converts 3D models into printer-ready instructions for optimized prints.</p>
+        </a>
+      </div>
+
+      <!-- CAD/Design Tools -->
+      <div class="tool-card">
+        <a href="https://www.tinkercad.com/" target="_blank">
+          <img src="products/tinkercad.jpg" alt="TinkerCAD Logo">
+          <h3><u>TinkerCAD</u></h3>
+          <p>Easy online 3D design tool for quick edits and simple prototype creation.</p>
+        </a>
+      </div>
+
+      <div class="tool-card">
+        <a href="https://cad.onshape.com/" target="_blank">
+          <img src="products/onshape.png" alt="Onshape Logo">
+          <h3><u>Onshape</u></h3>
+          <p>Cloud-based CAD software for professional 3D design and mechanical engineering collaboration.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Acole Prints — All rights reserved. | info@acoleprints.shop
+  </footer>
+
+  <script>
+    // Dropdown toggle
+    const dropdown = document.querySelector('.dropdown');
+    const dropbtn = dropdown.querySelector('.dropbtn');
+    const menu = dropdown.querySelector('.dropdown-content');
+
+    dropbtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener('click', () => {
+      menu.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
